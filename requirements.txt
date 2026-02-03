@@ -1,0 +1,1 @@
+fastapi uvicorn psycopg2 sqlalchemy pillow torch torchvision ftfy regex tqdm open-clip-torch pgvector python-multipart
