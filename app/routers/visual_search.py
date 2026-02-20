@@ -41,10 +41,10 @@ def visual_search(file: UploadFile = File(...), company_id: int = 1):
                 VisualProduct.name,
                 VisualProduct.image_path,
                 VisualProduct.source,
-                distance_expr
+                VisualProduct.embedding.l2_distance(embedding).label("distance")
             )
             .filter(VisualProduct.company_id == company_id)
-            .order_by(distance_expr)
+            .order_by(VisualProduct.embedding.l2_distance(embedding))
             .limit(5)
             .all()
         )
